@@ -1,5 +1,3 @@
-#!/bin/bash 
-
 [Unit]
 Description = Catalogue Service
 
