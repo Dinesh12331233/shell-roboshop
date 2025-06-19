@@ -32,7 +32,7 @@ if [ $1 -ne 0 ]
     fi         
 }
 
-cp mongo.repo /etc/yum.repos.d/mongodb.repo
+cp mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "copying mongodb repo"
 
 dnf install mongodb-org -y  &>>$LOG_FILE
