@@ -35,7 +35,7 @@ if [ $1 -ne 0 ]
 cp mongo.repo /etc/yum.repos.d/mongodb.repo
 VALIDATE $? "copying mongodb repo"
 
-dnf install mongodb-org -y &>>$LOG_FILE
+dnf install mongodb-org -y  &>>$LOG_FILE
 VALIDATE $? "Installing mongodb server"
 
 systemctl enable mongod &>>$LOG_FILE
