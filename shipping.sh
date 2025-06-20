@@ -80,9 +80,9 @@ VALIDATE $? "starting shipping"
 dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "installing mysql" 
 
-mysql -h mysql.deepthi.tech -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOG_FILE
-mysql -h mysql.deepthi.tech -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$LOG_FILE
-mysql -h mysql.deepthi.tech -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$LOG_FILE
+mysql -h mysql.deepthi.tech -uroot -p$MYSQL_ROOT_PASSWORD < /app/db/schema.sql &>>$LOG_FILE
+mysql -h mysql.deepthi.tech -uroot -p$MYSQL_ROOT_PASSWORD < /app/db/app-user.sql &>>$LOG_FILE
+mysql -h mysql.deepthi.tech -uroot -p$MYSQL_ROOT_PASSWORD < /app/db/master-data.sql &>>$LOG_FILE
 VALIDATE $? "loading data into MYSQL" 
 
 systemctl restart shipping &>>$LOG_FILE
