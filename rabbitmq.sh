@@ -40,16 +40,16 @@ if [ $1 -ne 0 ]
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo 
 VALIDATE $? "adding rabbitmq repo"
 
-dnf install rabbitmq-server -y 
+dnf install rabbitmq-server -y &>>$LOG_FILE
 VALIDATE $? "installing rabbitmq server"
 
-systemctl enable rabbitmq-server
+systemctl enable rabbitmq-server &>>$LOG_FILE
 VALIDATE $? "enabling rabbitmq server"
 
-systemctl start rabbitmq-server 
+systemctl start rabbitmq-server  &>>$LOG_FILE
 VALIDATE $? "starting rabbitmq server" 
 
-rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD #password=roboshop123
+rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD  &>>$LOG_FILE #password=roboshop123 
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 
 
