@@ -12,4 +12,6 @@ ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target 
+
+
