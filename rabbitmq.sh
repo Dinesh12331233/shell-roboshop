@@ -49,7 +49,7 @@ VALIDATE $? "enabling rabbitmq server"
 systemctl start rabbitmq-server 
 VALIDATE $? "starting rabbitmq server" 
 
-rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD
+rabbitmqctl add_user roboshop $RABBITMQ_PASSWORD #password=roboshop123
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 
 
