@@ -80,7 +80,7 @@ VALIDATE $? "starting shipping"
 dnf install mysql -y &>>$LOG_FILE
 VALIDATE $? "installing mysql" 
 
-mysql -h mysql.deepthi.tech -u root -proboshop@1 -e 'use cities'
+mysql -h mysql.deepthi.tech -u root -p$MYSQL_ROOT_PASSWORD -e 'use cities'
 if [ $? -ne 0 ] 
 then
     mysql -h mysql.deepthi.tech -uroot -p$MYSQL_ROOT_PASSWORD < /app/db/schema.sql &>>$LOG_FILE
